@@ -77,7 +77,7 @@ class APIManager: SessionManager {
         }
     }
         
-    func getHomeTimeLine(completion: @escaping ([Tweet]?, Error?) -> ()) {
+    func getHomeTimeLine(options: [String: Any]?, completion: @escaping ([Tweet]?, Error?) -> ()) {
 
         // This uses tweets from disk to avoid hitting rate limit. Comment out if you want fresh
         // tweets,
@@ -91,7 +91,7 @@ class APIManager: SessionManager {
             return
         }
 
-        request(URL(string: "https://api.twitter.com/1.1/statuses/home_timeline.json")!, method: .get)
+        request(URL(string: "https://api.twitter.com/1.1/statuses/home_timeline.json")!, method: .get, parameters: options)
             .validate()
             .responseJSON { (response) in
                 switch response.result {
@@ -181,6 +181,17 @@ class APIManager: SessionManager {
     }
     
     // MARK: TODO: Compose Tweet
+    func composeTweet(with text: String, completion: @escaping (Tweet?, Error?) -> ()) {
+        let urlString = "https://api.twitter.com/1.1/statuses/update.json"
+        let parameters = ["status": text]
+        oauthManager.client.post(urlString, parameters: parameters, headers: nil, body: nil, success: { (response: OAuthSwiftResponse) in
+            let tweetDictionary = try! response.jsonObject() as! [String: Any]
+            let tweet = Tweet(dictionary: tweetDictionary)
+            completion(tweet, nil)
+        }) { (error: OAuthSwiftError) in
+            completion(nil, error.underlyingError)
+        }
+    }
     
     // MARK: TODO: Get User Timeline
     

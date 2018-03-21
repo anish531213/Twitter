@@ -21,6 +21,7 @@ class Tweet {
     //var replyCount: Int? // Reply count of tweet
     var user: User // Contains name, screenname, etc. of tweet author
     var createdAtString: String // Display date
+    var createdAtStringLong: String // Display long date
     
     // MARK: - Create initializer with dictionary
     init(dictionary: [String: Any]) {
@@ -50,6 +51,8 @@ class Tweet {
         let date = Date(dateString: createdAtOriginalString, format: "E MMM d HH:mm:ss Z y")
         
         createdAtString = "\(date.shortTimeAgoSinceNow)"
+        
+        createdAtStringLong = "\(date.timeAgoSinceNow)"
     }
     
     static func tweets(with array: [[String: Any]]) -> [Tweet] {
