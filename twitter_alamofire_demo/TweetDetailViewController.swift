@@ -18,6 +18,8 @@ class TweetDetailViewController: UITableViewController {
     @IBOutlet weak var favroiteCountLabel: UILabel!
     @IBOutlet weak var createdAtLabel: UILabel!
     @IBOutlet var staticTableView: UITableView!
+    @IBOutlet weak var retweetButton: UIButton!
+    @IBOutlet weak var faveroiteButton: UIButton!
     
     var tweet: Tweet!
     
@@ -26,7 +28,6 @@ class TweetDetailViewController: UITableViewController {
         
         staticTableView.rowHeight = UITableViewAutomaticDimension
         staticTableView.estimatedRowHeight = 70
-        
         profileImageView.layer.cornerRadius = 20
         
         tweetDescriptionLabel.text = tweet.text
@@ -36,12 +37,18 @@ class TweetDetailViewController: UITableViewController {
         retweetCountLabel.text = "\(tweet.retweetCount)"
         favroiteCountLabel.text = "\(tweet.favoriteCount!)"
         createdAtLabel.text = tweet.createdAtStringLong
-
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        //print("\(retweetButton.isHighlighted)")
+        if tweet.favorited! == true {
+            faveroiteButton.isSelected = true
+            faveroiteButton.setImage(UIImage(named: "favor-icon-red"), for: .normal)
+        }
+        
+        if tweet.retweeted! == true {
+            retweetButton.isSelected = true
+            retweetButton.setImage(UIImage(named: "retweet-icon-green"), for: .normal)
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,9 +76,85 @@ class TweetDetailViewController: UITableViewController {
 
     
     @IBAction func retweetButtonTapped(_ sender: Any) {
+        if retweetButton.isSelected == true {
+            retweetButton.isSelected = false
+            retweetButton.setImage(UIImage(named: "retweet-icon"), for: .normal)
+            unRetweetTweet()
+        }else {
+            retweetButton.isSelected = true
+            retweetButton.setImage(UIImage(named: "retweet-icon-green"), for: .normal)
+            retweetTweet()
+        }
     }
     
     @IBAction func faveroiteButtonTapped(_ sender: Any) {
+        if faveroiteButton.isSelected == true {
+            faveroiteButton.isSelected = false
+            faveroiteButton.setImage(UIImage(named: "favor-icon"), for: .normal)
+            unFavoriteTweet()
+        }else {
+            faveroiteButton.isSelected = true
+            faveroiteButton.setImage(UIImage(named: "favor-icon-red"), for: .normal)
+            favoriteTweet()
+        }
+        
+    }
+    
+    func retweetTweet() {
+        APIManager.shared.retweet(tweet) { (tweet: Tweet?, error: Error?) in
+            if let  error = error {
+                print("Error retweeting tweet: \(error.localizedDescription)")
+            } else if let tweet = tweet {
+                print("Successfully retweeted the following Tweet: \n\(tweet.text)")
+                self.tweet.retweetCount += 1
+                self.tweet.retweeted = true
+                self.refreshData()
+            }
+        }
+    }
+    
+    func unRetweetTweet() {
+        APIManager.shared.unRetweet(tweet) { (tweet: Tweet?, error: Error?) in
+            if let  error = error {
+                print("Error un-retweeting tweet: \(error.localizedDescription)")
+            } else if let tweet = tweet {
+                print("Successfully un-retweeted the following Tweet: \n\(tweet.text)")
+                self.tweet.retweetCount -= 1
+                self.tweet.retweeted = false
+                self.refreshData()
+            }
+        }
+    }
+    
+    func favoriteTweet() {
+        APIManager.shared.favorite(tweet) { (tweet: Tweet?, error: Error?) in
+            if let  error = error {
+                print("Error favoriting tweet: \(error.localizedDescription)")
+            } else if let tweet = tweet {
+                print("Successfully favoriting the following Tweet: \n\(tweet.text)")
+                self.tweet.favoriteCount! += 1
+                self.tweet.favorited = true
+                self.refreshData()
+            }
+        }
+    }
+    
+    func unFavoriteTweet() {
+        APIManager.shared.favorite(tweet) { (tweet: Tweet?, error: Error?) in
+            if let  error = error {
+                print("Error un-favoriting tweet: \(error.localizedDescription)")
+            } else if let tweet = tweet {
+                print("Successfully un-favoriting the following Tweet: \n\(tweet.text)")
+                self.tweet.favoriteCount! -= 1
+                self.tweet.favorited = false
+                self.refreshData()
+            }
+        }
+    }
+    
+    func refreshData() {
+        retweetCountLabel.text = "\(tweet.retweetCount)"
+        favroiteCountLabel.text = "\(tweet.favoriteCount!)"
     }
     
     /*

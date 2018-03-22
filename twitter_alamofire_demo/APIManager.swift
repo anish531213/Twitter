@@ -136,7 +136,7 @@ class APIManager: SessionManager {
     
     // MARK: TODO: Un-Favorite a Tweet
     func unFavorite(_ tweet: Tweet, completion: @escaping (Tweet?, Error?) -> ()) {
-        let urlString = "https://api.twitter.com/1.1/favorites/destroy.json"
+        let urlString = "https://api.twitter.com/1.1/favorites/destroy.json?id=\(tweet.id)"
         let parameters = ["id": tweet.id]
         request(urlString, method: .post, parameters: parameters, encoding: URLEncoding.queryString).validate().responseJSON { (response) in
             if response.result.isSuccess,

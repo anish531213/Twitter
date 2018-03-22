@@ -32,6 +32,8 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
     
         tweetTextView.text = initialtext
         
+        
+        
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
