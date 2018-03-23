@@ -40,6 +40,10 @@ Here's a walkthrough of implemented user stories:
 
 <img src='https://i.imgur.com/dehfQg4.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
+## Autolayout Demo
+
+<img src='https://i.imgur.com/vIzVoMa.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes

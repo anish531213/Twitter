@@ -810,7 +810,7 @@
         <!--Home-->
         <scene sceneID="WXZ-z8-8LI">
             <objects>
-                <navigationController storyboardIdentifier="TweetsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="RFK-Vv-pWW" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="TweetsNavigationController" automaticallyAdjustsScrollViewInsets="NO" hidesBarsWhenKeyboardAppears="YES" id="RFK-Vv-pWW" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="home-icon" id="jyB-8o-kly"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="COb-xK-t9O">
@@ -860,7 +860,7 @@
         <image name="theme6" width="747" height="316"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zhp-tx-xIB"/>
-        <segue reference="vLH-3s-cgP"/>
+        <segue reference="QpF-Md-cKh"/>
+        <segue reference="Mci-Cl-y5w"/>
     </inferredMetricsTieBreakers>
 </document>
