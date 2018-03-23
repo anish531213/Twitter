@@ -73,6 +73,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
                 } else if let tweet = tweet {
                     self.delegate?.did(post: tweet)
                     print("Compose Tweet Success!")
+                    self.navigationController?.popViewController(animated: true)
                 }
             }
         }

@@ -59,7 +59,7 @@ class User {
         let profile_imgUrl = dictionary["profile_image_url_https"] as! String
         profileImageUrl = URL(string: profile_imgUrl)!
         
-        //print(dictionary["profile_background_image_url_https"])
+        print(dictionary["profile_background_image_url_https"])
         
         if let background_imgUrl =  dictionary["profile_background_image_url_https"] as? String  {
             backgroundImageUrl = URL(string: background_imgUrl)!
