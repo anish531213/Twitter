@@ -281,26 +281,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="theme6" translatesAutoresizingMaskIntoConstraints="NO" id="gCd-i7-Q87">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="theme6" translatesAutoresizingMaskIntoConstraints="NO" id="gCd-i7-Q87">
                                 <rect key="frame" x="0.0" y="64" width="414" height="220"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.65177408849999996" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="220" id="dRC-cq-bmg"/>
+                                </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aa9-I6-sdx">
-                                <rect key="frame" x="20" y="233" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Aa9-I6-sdx">
+                                <rect key="frame" x="20" y="234" width="100" height="100"/>
                                 <color key="backgroundColor" red="0.38176157807441491" green="0.36641116470370283" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Z2s-Vz-7Yc"/>
+                                    <constraint firstAttribute="height" constant="100" id="t2o-qi-0mB"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CodePath" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sym-fJ-G8P">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CodePath" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sym-fJ-G8P">
                                 <rect key="frame" x="130" y="290" width="88" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="@thecodepath" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6vj-Wi-jHo">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@thecodepath" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6vj-Wi-jHo">
                                 <rect key="frame" x="130" y="315" width="101" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -507,6 +510,20 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="sym-fJ-G8P" secondAttribute="trailing" constant="8" id="8PY-Ui-Cxa"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="6vj-Wi-jHo" secondAttribute="trailing" constant="8" id="AkI-re-nn9"/>
+                            <constraint firstItem="6vj-Wi-jHo" firstAttribute="top" secondItem="sym-fJ-G8P" secondAttribute="bottom" constant="2" id="CKa-WC-GUv"/>
+                            <constraint firstItem="Aa9-I6-sdx" firstAttribute="centerY" secondItem="gCd-i7-Q87" secondAttribute="baseline" id="CPm-mf-baK"/>
+                            <constraint firstAttribute="trailing" secondItem="gCd-i7-Q87" secondAttribute="trailing" id="Fs6-rI-S22"/>
+                            <constraint firstItem="sym-fJ-G8P" firstAttribute="leading" secondItem="Aa9-I6-sdx" secondAttribute="trailing" constant="10" id="aDY-hF-i2v"/>
+                            <constraint firstItem="6vj-Wi-jHo" firstAttribute="leading" secondItem="Aa9-I6-sdx" secondAttribute="trailing" constant="10" id="cmn-hv-q6j"/>
+                            <constraint firstItem="gCd-i7-Q87" firstAttribute="top" secondItem="2QN-se-j1U" secondAttribute="bottom" id="hCr-bE-Mva"/>
+                            <constraint firstItem="sym-fJ-G8P" firstAttribute="top" secondItem="gCd-i7-Q87" secondAttribute="bottom" constant="6" id="o4p-Ku-gNe"/>
+                            <constraint firstItem="Aa9-I6-sdx" firstAttribute="leading" secondItem="1SK-HY-dKE" secondAttribute="leadingMargin" id="oSa-ev-2lR"/>
+                            <constraint firstItem="gCd-i7-Q87" firstAttribute="leading" secondItem="1SK-HY-dKE" secondAttribute="leading" id="pjq-zq-1Xh"/>
+                            <constraint firstItem="6vj-Wi-jHo" firstAttribute="top" secondItem="sym-fJ-G8P" secondAttribute="bottom" constant="2" id="wb6-eT-X2C"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Me" id="IJD-5J-6fu">
@@ -607,10 +624,14 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Acw-7T-eng">
                                                     <rect key="frame" x="15" y="10" width="100" height="100"/>
+                                                    <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="100" id="Mle-jW-3f1"/>
                                                         <constraint firstAttribute="width" constant="100" id="W6H-jE-ZaC"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="Nsa-TC-XKV" appends="YES" id="yli-0f-baE"/>
+                                                    </connections>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P05-T1-Had">
                                                     <rect key="frame" x="125" y="89" width="42" height="21"/>
@@ -655,7 +676,7 @@
                                         </tableViewCellContentView>
                                         <gestureRecognizers/>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="Nsa-TC-XKV" appends="YES" id="2DI-SG-KjN"/>
+                                            <outletCollection property="gestureRecognizers" destination="Nsa-TC-XKV" appends="YES" id="FIh-oH-KpU"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="37" id="5RK-BC-8Bh">
@@ -839,7 +860,7 @@
         <image name="theme6" width="747" height="316"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8vF-Ur-Q4d"/>
-        <segue reference="Mci-Cl-y5w"/>
+        <segue reference="zhp-tx-xIB"/>
+        <segue reference="vLH-3s-cgP"/>
     </inferredMetricsTieBreakers>
 </document>
