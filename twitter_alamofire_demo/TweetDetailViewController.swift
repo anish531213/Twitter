@@ -69,9 +69,16 @@ class TweetDetailViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let replyVC = segue.destination as! ComposeViewController
-        replyVC.initialtext = "@\(tweet.user.id) "
-        replyVC.tweetButton.title = "Reply"
+        if segue.identifier == "replySegue" {
+            let replyVC = segue.destination as! ComposeViewController
+            replyVC.initialtext = "@\(tweet.user.id) "
+            replyVC.tweetButton.title = "Reply"
+        }
+        else if segue.identifier == "profileSegue" {
+            let profileVC = segue.destination as! ProfileViewController
+            profileVC.user = tweet.user
+        }
+       
     }
 
     

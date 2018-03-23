@@ -115,6 +115,15 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
             let composeVC = segue.destination as! ComposeViewController
             composeVC.delegate = self
         }
+        else if (segue.identifier == "viewProfile") {
+            let gesture = sender as! UITapGestureRecognizer
+            let cell = gesture.location(in: tableView)
+            if let indexPath = tableView.indexPathForRow(at: cell) {
+                let profileVC = segue.destination as! ProfileViewController
+                let currTweet = tweets[indexPath.row]
+                profileVC.user = currTweet.user
+            }
+        }
     }
     
     func did(post: Tweet) {

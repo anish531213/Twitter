@@ -13,6 +13,11 @@ class User {
     var name: String
     var id: String
     var profileImageUrl: URL
+    var verified: Bool
+    var follwersCount: Int
+    var friendsCount: Int
+    var tweetCount: Int
+    var backgroundImageUrl: URL! = nil
     // For user persistance
     var dictionary: [String: Any]?
     
@@ -46,8 +51,21 @@ class User {
         
         name = dictionary["name"] as! String
         id = dictionary["screen_name"] as! String
+        verified = dictionary["verified"] as! Bool
+        follwersCount = dictionary["followers_count"] as! Int
+        friendsCount = dictionary["friends_count"] as! Int
+        tweetCount = dictionary["statuses_count"] as! Int
         
         let profile_imgUrl = dictionary["profile_image_url_https"] as! String
         profileImageUrl = URL(string: profile_imgUrl)!
+        
+        //print(dictionary["profile_background_image_url_https"])
+        
+        if let background_imgUrl =  dictionary["profile_background_image_url_https"] as? String  {
+            backgroundImageUrl = URL(string: background_imgUrl)!
+        }
+        
+        //print(User.current?.backgroundImageUrl)
+ 
     }
 }
